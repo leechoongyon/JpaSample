@@ -1,0 +1,19 @@
+2020-03-16 22:26:18 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "BOOKWHERE" not found; SQL statement:
+SELECT   ID as id  ,TITLE as title  ,price as price  FROM    BOOKWHERE   price =?  [42102-200]
+2020-03-16 22:29:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM BOOK
+SELECT[*] * FROM MEMBER"; SQL statement:
+select * from book
+select * from member [42000-200]
+2020-03-16 22:29:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM BOOK
+SELECT[*] * FROM MEMBER"; SQL statement:
+select * from book
+select * from member [42000-200]
+2020-03-16 22:37:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT   B.ID AS ID  ,B.TITLE AS TITLE  ,MAX(B.PRICE) AS PRICE  FROM    BOOK BWHERE   B[*].PRICE =? GROUP BY    B.ID, B.TITLE"; SQL statement:
+SELECT   B.ID as id  ,B.TITLE as title  ,max(B.price) as price  FROM    BOOK BWHERE   B.price =? GROUP BY    B.ID, B.TITLE [42000-200]
+2020-03-16 22:38:18 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT   B.ID AS ID  ,B.TITLE AS TITLE  ,MAX(B.PRICE) AS PRICE  FROM    BOOK BWHERE   B[*].PRICE =10000 GROUP BY    B.ID, B.TITLE"; SQL statement:
+SELECT   B.ID as id  ,B.TITLE as title  ,max(B.price) as price  FROM    BOOK BWHERE   B.price =10000 GROUP BY    B.ID, B.TITLE [42000-200]

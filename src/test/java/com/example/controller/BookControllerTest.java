@@ -8,18 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(BookController.class)
+@Rollback(false)
 public class BookControllerTest {
 
     @Autowired
@@ -48,5 +51,20 @@ public class BookControllerTest {
                 .andExpect(jsonPath("price").value(1000D))
         ;
 
+    }
+
+    @Test
+    public void updateBookTest() throws Exception {
+        //when
+        final ResultActions actions = mvc.perform(put("/books/{id}", 1L, 2000D)
+                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andDo(print());
+//        //then
+//        actions
+//                .andExpect(status().isOk())
+//                .andExpect(jsonPath("id").value(0))
+//                .andExpect(jsonPath("title").value("title"))
+//                .andExpect(jsonPath("price").value(1000D))
+//        ;
     }
 }
