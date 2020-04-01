@@ -39,6 +39,8 @@ public class BookController {
     @PostMapping
     public Book insertBook(@RequestBody Book book) {
         Book resultBook = bookRepository.save(book);
+        log.info("rdsultBook : {}", resultBook.getBookType());
+
         return resultBook;
     }
 

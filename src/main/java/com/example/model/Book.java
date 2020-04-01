@@ -16,9 +16,17 @@ public class Book {
     private String title;
     private double price;
 
+
     @Builder
     public Book(String title, double price) {
         this.title = title;
         this.price = price;
+    }
+
+    @Enumerated(EnumType.STRING)
+    private BookType bookType;
+
+    enum BookType {
+        FIRST, SECOND;
     }
 }
