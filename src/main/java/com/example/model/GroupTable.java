@@ -1,12 +1,16 @@
 package com.example.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Data
+@Getter
+@Setter
 public class GroupTable {
 
     @Id
@@ -17,5 +21,5 @@ public class GroupTable {
     private String groupName;
 
     @OneToMany(mappedBy = "groupTable")
-    private List<Member> list;
+    private List<Member> members = new ArrayList<>();
 }

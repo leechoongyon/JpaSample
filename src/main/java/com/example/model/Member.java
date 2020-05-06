@@ -1,11 +1,14 @@
 package com.example.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Setter
+@Getter
 @Table(name = "MEMBER")
 public class Member {
     @Id
@@ -21,4 +24,8 @@ public class Member {
     @ManyToOne
     @JoinColumn(name="GROUP_ID")
     private GroupTable groupTable;
+
+    public void setGroupTable(GroupTable groupTable) {
+        this.groupTable = groupTable;
+    }
 }
