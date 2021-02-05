@@ -36,7 +36,7 @@ public class OneToManyNonPkTest {
         bDomainRepository.save(bDomain);
 
         BDomain bDomain1 = new BDomain();
-        bDomain.setTestKey(testKey);
+        bDomain1.setTestKey(testKey);
         bDomainRepository.save(bDomain1);
 
         ADomain aDomain = new ADomain();
@@ -48,9 +48,14 @@ public class OneToManyNonPkTest {
     @Test
     @Transactional
     public void OneToMany_NON_PK_조회_테스트() throws Exception {
+
+
         List<ADomain> aDomains = aDomainRepository.findAll();
         List<BDomain> bDomains = aDomains.get(0).getB();
 
+        System.out.println("data!!!!!!!!!!");
+        System.out.println("[0] : " + bDomains.get(0));
+        System.out.println("[1] : " + bDomains.get(1));
         bDomains.forEach(domain -> {
             System.out.println(domain);
         });
